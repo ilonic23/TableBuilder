@@ -93,7 +93,7 @@ char* buildTable(Table *table) {
     // Upper borders
     offset += snprintf(result + offset, MAXTABLESTRING - offset, "%s", BOX_LEFT_UPPER_CORNER);
     for (i = 0; i < table->Width; ++i) {
-        repeatStr(lineBuf, columnLengths[i], LINE_HORIZONTAL,128);
+        repeatStr(lineBuf, columnLengths[i], LINE_HORIZONTAL,MAXSTRINGLEN);
         if (i == table->Width - 1) {
             offset += snprintf(result + offset, MAXTABLESTRING - offset, "%s%s\n", lineBuf, BOX_RIGHT_UPPER_CORNER);
         } else {
@@ -118,7 +118,7 @@ char* buildTable(Table *table) {
         if (i != table->Height - 1) {
             offset += snprintf(result + offset, MAXTABLESTRING - offset, "%s", BOX_LEFT_FORK);
             for (k = 0; k < table->Width; ++k) {
-                repeatStr(lineBuf, columnLengths[i], LINE_HORIZONTAL,128);
+                repeatStr(lineBuf, columnLengths[k], LINE_HORIZONTAL,MAXSTRINGLEN);
                 if (k == table->Width - 1) {
                     offset += snprintf(result + offset, MAXTABLESTRING - offset, "%s%s\n", lineBuf, BOX_RIGHT_FORK);
                 } else {
@@ -131,7 +131,7 @@ char* buildTable(Table *table) {
     // Bottom borders
     offset += snprintf(result + offset, MAXTABLESTRING - offset, "%s", BOX_LEFT_LOWER_CORNER);
     for (i = 0; i < table->Width; ++i) {
-        repeatStr(lineBuf, columnLengths[i], LINE_HORIZONTAL,128);
+        repeatStr(lineBuf, columnLengths[i], LINE_HORIZONTAL,MAXSTRINGLEN);
         if (i == table->Width - 1) {
             offset += snprintf(result + offset, MAXTABLESTRING - offset, "%s%s", lineBuf, BOX_RIGHT_LOWER_CORNER);
         } else {
